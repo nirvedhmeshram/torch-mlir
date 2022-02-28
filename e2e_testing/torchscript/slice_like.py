@@ -233,3 +233,23 @@ def SelectIntModule_basic(module, tu: TestUtils):
 
 # ==============================================================================
 
+class SliceModule4d(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    @export
+    @annotate_args([
+        None,
+        ([-1, -1, -1, -1], torch.float32, True),
+    ])
+    def forward(self, x):
+        return x[1:3, 2:6, :, :]
+
+
+@register_test_case(module_factory=lambda: SliceModule4d())
+def SliceModule_4d(module, tu: TestUtils):
+    module.forward(tu.rand(10, 9, 12, 15))
+
+# ==============================================================================
+
+

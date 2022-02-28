@@ -18,6 +18,7 @@ COMMON_TORCH_MLIR_LOWERING_XFAILS = {
     "TableBatchEmbeddingModule_basic",
     "MobilenetV2Module_basic",
     "MobilenetV3Module_basic",
+    #"SliceModule_4d",
 }
 REFBACKEND_XFAIL_SET = COMMON_TORCH_MLIR_LOWERING_XFAILS
 
